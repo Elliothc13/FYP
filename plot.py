@@ -1,5 +1,6 @@
 import shapefile as shp  # Requires the pyshp package
 import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 
 sf = shp.Reader("C:/Users/Elliot Cleary/Downloads/YES/Ireland_50.shp")
 
@@ -13,4 +14,5 @@ for shape in sf.shapeRecords():
 # ax.set(facecolor = "orange")
 fig = plt.gcf()
 fig.set_size_inches(8, 10)
+
 plt.show()
