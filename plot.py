@@ -2,7 +2,7 @@ import shapefile as shp  # Requires the pyshp package
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 
-sf = shp.Reader("C:/Users/Elliot Cleary/Downloads/YES/Ireland_50.shp")
+sf = shp.Reader("Ireland_50.shp")
 
 plt.figure()
 for shape in sf.shapeRecords():
