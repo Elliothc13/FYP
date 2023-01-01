@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'plotting'
+    'plotting',
+    'markers',
 ]
 
 MIDDLEWARE = [
