@@ -1,0 +1,22 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+/*
+    width:  5000px;
+    height: 400px;
+}
+
+#specialbigmap {
+    height: 800px;
+}
+
+.django-leaflet-raw-textarea {
+    width: 100%;
+} */
