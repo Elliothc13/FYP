@@ -1,3 +1,11 @@
+const menuItems = document.querySelectorAll('.menu-item');
+const theme = document.querySelector('#theme');
+const themeModal = document.querySelector('.customise-theme');
+const fontSizes = document.querySelectorAll('.choose-size span');
+const root = document.querySelector(':root');
+const background1 = document.querySelector('.background-1');
+const background2 = document.querySelector('.background-2');
+const background3 = document.querySelector('.background-3');
 const copy =
     "© <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors";
 const url = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
@@ -9,18 +17,11 @@ const map = L.map("map", {
 });
 
 var imageUrl = '/static/images/0001.png',
-// imageBounds = [[55.4124, -10.5168], [51.2960, -5.3830]];
-// imageBounds = [[55.578, -10.547], [51.4, -5.625]];
 imageBounds = [[55.579, -11.25], [51.399, -5.273]];
 var imageOverlay = L.imageOverlay(imageUrl, imageBounds).addTo(map);
 
-var button = L.control({ position: 'topright' });
-button.onAdd = function(map) {
-    var div = L.DomUtil.create('div', 'button');
-    div.innerHTML = '<button onclick="toggleImageOverlay()">Toggle Image Overlay</button>';
-    return div;
-}
-button.addTo(map);
+var toggleButton = document.getElementById('btn_2');
+toggleButton.addEventListener('click', toggleImageOverlay);
 
 function toggleImageOverlay() {
     if (map.hasLayer(imageOverlay)) {
@@ -32,54 +33,52 @@ function toggleImageOverlay() {
 
 var rangeInput = document.getElementById("slider");
 var buttonInput = document.getElementById("btn");
-
 if (buttonInput.addEventListener) {
-    buttonInput.addEventListener("click", testtest, false);
+    buttonInput.addEventListener("click", apply, false);
 }
 else if (buttonInput.attachEvent) {
-    buttonInput.attachEvent('onclick', testtest);
+    buttonInput.attachEvent('onclick', apply);
 }
 
-function testtest(e) {
-    var value = rangeInput.value;
-    console.log(imageUrl);
-    if (value > 99) {
-        imageUrl = '/static/images/0'+ value + '.png'
+var valueInt = 0;
+function apply(e) {
+    if (valueInt > 999) {
+        imageUrl = '/static/images/'+ valueInt + '.png'
         map.removeLayer(imageOverlay);
         imageOverlay = L.imageOverlay(imageUrl, imageBounds);
         map.addLayer(imageOverlay);
-    } else if (value > 9) {
-        imageUrl = '/static/images/00'+ value + '.png'
+    } else if (valueInt > 99) {
+        imageUrl = '/static/images/0'+ valueInt + '.png'
         map.removeLayer(imageOverlay);
+        imageOverlay = L.imageOverlay(imageUrl, imageBounds);
+        map.addLayer(imageOverlay);
+    }else if (valueInt > 9) {
+        map.removeLayer(imageOverlay);
+        imageUrl = '/static/images/00'+ valueInt + '.png'
         imageOverlay = L.imageOverlay(imageUrl, imageBounds);
         map.addLayer(imageOverlay);
     }else {
         map.removeLayer(imageOverlay);
-        imageUrl = '/static/images/000'+ value + '.png'
+        imageUrl = '/static/images/000'+ valueInt + '.png'
         imageOverlay = L.imageOverlay(imageUrl, imageBounds);
         map.addLayer(imageOverlay);
     }
 }
 
+var res =  document.getElementById('currentValue');
+var inputBoxInput = document.getElementById('inputBox');
+res.innerHTML = rangeInput.value;
+rangeInput.addEventListener('change', function(e) {
+    res.innerHTML = e.target.value
+    valueInt = rangeInput.value
+})
+inputBoxInput.addEventListener('change', function(e) {
+    res.innerHTML = e.target.value
+    valueInt = inputBoxInput.value
+})
+
 map.fitWorld().setView([53.391743810981, -7.759557934271902], 10);
 
-
-
-
-
-//-------------------------------------------
-
-
-const menuItems = document.querySelectorAll('.menu-item');
-const theme = document.querySelector('#theme');
-const themeModal = document.querySelector('.customise-theme');
-const fontSizes = document.querySelectorAll('.choose-size span');
-const root = document.querySelector(':root');
-const background1 = document.querySelector('.background-1');
-const background2 = document.querySelector('.background-2');
-const background3 = document.querySelector('.background-3');
-
-//changes what displays as "active"
 const changeActiveItem = () => {
     menuItems.forEach(item => {
         item.classList.remove('active');
@@ -141,10 +140,13 @@ const changeBackground = () => {
 
 //light background
 background1.addEventListener('click', () => {
+    darkColorLightness = '17%';
+    whiteColorLightness = '100%';
+    lightColorLightness = '95%';
     background1.classList.add('active');
     background2.classList.remove('active');
     background3.classList.remove('active');
-    window.location.reload();
+    changeBackground();
 })
 
 //dim background
@@ -168,3 +170,4 @@ background3.addEventListener('click', () => {
     background2.classList.remove('active');
     changeBackground();
 })
+

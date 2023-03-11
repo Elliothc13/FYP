@@ -1,32 +1,4 @@
 {% load static %}
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Markers Map</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="{% static '/css/map.css' %}" />
-
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-    crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-    crossorigin=""></script>
-  </head>
-  <body>
-    <div id="slidecontainer">
-      <input type="range" min="1" max="199" value="1" id="slider">
-      <button id="btn">Click Me!</button> 
-    </div>
-    <div id="map"></div>
-    <script src="{% static './JavaScrip/map.js' %}"></script>
-  </body>
-</html> -->
-
-
-<!-- ----------------------------------------------------- -->
-
-
 <html>
 <head>
   <meta charset="UTF-8">
@@ -107,8 +79,14 @@
             <div class="right col-sm-2">
               <div id="slidecontainer">
                 <h5>Change Water Height</h5>
-                <input type="range" min="0" max="199" value="0" id="slider">
-                <button id="btn">Apply</button> 
+                <input type="range" min="0" max="1050" value="0" id="slider">
+                <h5>Or input a value:</h5>
+                <h6>Value can be no larger than 1050</h6>
+                <input type="number" min="1" max="1050" id="inputBox">
+                <h5>Current Value:</h5>
+                <div id="currentValue"></div>
+                <button class="btn btn-primary" id="btn">Apply</button> 
+                <button class="btn btn-primary" id="btn_2">Toggle Image Overlay</button>
               </div>
             </div>
         </div>
