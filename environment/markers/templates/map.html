@@ -72,14 +72,14 @@
             <div class="middle col-sm-6">
                 <div class="feeds">
                     <div class="feed">
-                      <div id="map" style="height: 500px;"></div>
+                        <div id="map" style="height: 500px;"></div>
                     </div>
                 </div>
             </div>
             <div class="right col-sm-2">
               <div id="slidecontainer">
                 <h5>Change Water Height</h5>
-                <input type="range" min="0" max="1050" value="0" id="slider">
+                <input class="slider" type="range" min="0" max="1050" value="0" id="slider">
                 <h5>Or input a value:</h5>
                 <h6>Value can be no larger than 1050</h6>
                 <input type="number" min="1" max="1050" id="inputBox">
@@ -87,6 +87,8 @@
                 <div id="currentValue"></div>
                 <button class="btn btn-primary" id="btn">Apply</button> 
                 <button class="btn btn-primary" id="btn_2">Toggle Image Overlay</button>
+                <h5>Overlay Opacity:</h5>
+                <input class="slider" type="range" min="20" max="100" value="100" id="opacitySlider">
               </div>
             </div>
         </div>

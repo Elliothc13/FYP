@@ -44,27 +44,24 @@ var valueInt = 0;
 function apply(e) {
     if (valueInt > 999) {
         imageUrl = '/static/images/'+ valueInt + '.png'
-        map.removeLayer(imageOverlay);
-        imageOverlay = L.imageOverlay(imageUrl, imageBounds);
-        map.addLayer(imageOverlay);
+        imageOverlay.setUrl(imageUrl, true);
+        imageOverlay._reset();
     } else if (valueInt > 99) {
         imageUrl = '/static/images/0'+ valueInt + '.png'
-        map.removeLayer(imageOverlay);
-        imageOverlay = L.imageOverlay(imageUrl, imageBounds);
-        map.addLayer(imageOverlay);
+        imageOverlay.setUrl(imageUrl, true);
+        imageOverlay._reset();
     }else if (valueInt > 9) {
-        map.removeLayer(imageOverlay);
         imageUrl = '/static/images/00'+ valueInt + '.png'
-        imageOverlay = L.imageOverlay(imageUrl, imageBounds);
-        map.addLayer(imageOverlay);
+        imageOverlay.setUrl(imageUrl, true);
+        imageOverlay._reset();
     }else {
-        map.removeLayer(imageOverlay);
         imageUrl = '/static/images/000'+ valueInt + '.png'
-        imageOverlay = L.imageOverlay(imageUrl, imageBounds);
-        map.addLayer(imageOverlay);
+        imageOverlay.setUrl(imageUrl, true);
+        imageOverlay._reset();
     }
 }
 
+var opacityInput = document.getElementById("opacitySlider");
 var res =  document.getElementById('currentValue');
 var inputBoxInput = document.getElementById('inputBox');
 res.innerHTML = rangeInput.value;
@@ -75,6 +72,12 @@ rangeInput.addEventListener('change', function(e) {
 inputBoxInput.addEventListener('change', function(e) {
     res.innerHTML = e.target.value
     valueInt = inputBoxInput.value
+})
+
+
+opacityInput.addEventListener('input', function(e) {
+    var opacityValue = e.target.value / 100;
+    imageOverlay.setOpacity(opacityValue);
 })
 
 map.fitWorld().setView([53.391743810981, -7.759557934271902], 10);
@@ -170,4 +173,3 @@ background3.addEventListener('click', () => {
     background2.classList.remove('active');
     changeBackground();
 })
-
