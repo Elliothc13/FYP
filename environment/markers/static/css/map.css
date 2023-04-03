@@ -25,7 +25,8 @@
 html,
 body {
     height: 100%;
-    margin: 0;
+    margin:0 auto;
+    max-width: 3000px;
 }
 
 #map {
@@ -84,6 +85,7 @@ nav {
   position: fixed;
   top: 0;
   z-index: 10;
+  max-width: 3000px;
 }
 
 nav .container {
