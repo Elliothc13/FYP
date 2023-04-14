@@ -54,8 +54,12 @@ function apply(e) {
         imageUrl = '/static/images/00'+ valueInt + '.png'
         imageOverlay.setUrl(imageUrl, true);
         imageOverlay._reset();
-    }else {
+    }else if (valueInt >= 0){
         imageUrl = '/static/images/000'+ valueInt + '.png'
+        imageOverlay.setUrl(imageUrl, true);
+        imageOverlay._reset();
+    }else {
+        imageUrl = '/static/images/0000.png'
         imageOverlay.setUrl(imageUrl, true);
         imageOverlay._reset();
     }
