@@ -8,4 +8,4 @@ To run this project you will have to:
 - change to the directory `environment`
 - run the command `python manage.py migrate`
 - run the command `python manage.py runserver` or `py manage.py runserver`
-- you can then Ctrl+LMB the link to the website.
+- the website will then be running at `http://127.0.0.1:8000/`. Open this and you will be automatically redirected to the website.
