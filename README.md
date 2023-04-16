@@ -1,7 +1,9 @@
 # FYP
 To run this project you will have to:
-- make sure that python 3.11 is installed 
-- make sure that pip is installed and up to date
+- make sure that python 3.11 is installed
+  - can be downloaded either manually or from the microsoft store if you are running windows
+- make sure that pip is installed 
+  - make sure pip is up to date
 - run the command `pip install django`
 - change your directory to the same as `requirements.txt` which is in `FYP`
 - run the command `pip install -r requirements.txt`
