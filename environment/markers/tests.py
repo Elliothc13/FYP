@@ -11,7 +11,6 @@ class MarkersMapViewTestCase(TestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "map.html")
-        f
 
     def test_load_time(self):
         url = "http://127.0.0.1:8000/markers/map/"

@@ -1,4 +1,5 @@
 # FYP
+Link to Github Repo: https://github.com/Elliothc13/FYP
 To run this project you will have to:
 - make sure that python 3.11 is installed 
 - make sure that pip is installed and up to date
