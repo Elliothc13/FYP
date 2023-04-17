@@ -13,3 +13,10 @@ To run this project you will have to:
 - run the command `python manage.py migrate`
 - run the command `python manage.py runserver` or `py manage.py runserver`
 - the website will then be running at `http://127.0.0.1:8000/`. Open this and you will be automatically redirected to the website.
+
+To run the tests you will have to:
+- make sure you have the website running
+- run the command `python manage.py test` or `py manage.py test`
+- it should output `Ran 9 tests in [number]s OK`
+
+The code that was used for generating the overlays was also added to the `image_generation` folder but it is not required to run the program
