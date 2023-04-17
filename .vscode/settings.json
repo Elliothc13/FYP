@@ -1,6 +1,7 @@
 {
     "conventionalCommits.scopes": [
         "heroku setup",
-        "setup"
+        "setup",
+        "tests"
     ]
 }
