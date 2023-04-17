@@ -20,7 +20,8 @@ To run the tests you will have to:
 - It should output `Ran 9 tests in [number]s OK`
 
 The code that was used for generating the overlays was also added to the `image_generation` folder but it is **NOT** required to run the program
-- the steps are simply:
+- To run the code a mapbox account would be required to have an access token
+- The steps are simply:
   - Request terrain-rgb images from mapbox for the area of ireland (images were removed to save space)
   - Compile the images into 1 composite image
   - I manually created a transparent image with the same dimensions as the original by importing it into Gimp, adding an alpha channel and deleting the original image.
