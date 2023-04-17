@@ -19,7 +19,7 @@ To run the tests you will have to:
 - Run the command `python manage.py test` or `py manage.py test`
 - It should output `Ran 9 tests in [number]s OK`
 
-The code that was used for generating the overlays was also added to the `image_generation` folder but it is not required to run the program
+The code that was used for generating the overlays was also added to the `image_generation` folder but it is **NOT** required to run the program
 - the steps are simply:
   - Request terrain-rgb images from mapbox for the area of ireland (images were removed to save space)
   - Compile the images into 1 composite image
